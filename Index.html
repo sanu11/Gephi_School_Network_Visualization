@@ -1,0 +1,192 @@
+<html>
+<head>
+
+
+   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <title>School Network</title>
+  <style type="text/css">
+
+  p {
+    font-size: 20px;
+    color: orangered;
+  }
+  body{
+    color:black;
+    padding-top: 65px;
+    font-family: "Comic sans MS",cursive,sans-serif;
+
+     }
+
+  svg, text{
+    font-family: "Comic sans MS",cursive,sans-serif;
+
+
+  }
+  .container {
+    float: left;
+  }
+
+  .bar {
+    fill-opacity: .9;
+    }
+
+/*  text{
+    font-size: 12px;
+    color: black;
+    }*/
+
+  .line-chart
+  {
+    border: 1px solid lightgray;
+  }
+
+  .tooltip{     
+   width: 100px;
+   height: 60px;
+   padding: 6px;
+   font: 12px "Comic sans MS",cursive,sans-serif;
+   opacity: 1;
+ }
+
+  .line {
+    fill: none;
+    stroke: #123456;
+    stroke-width: 5px;
+  }
+
+ .overlay {
+  fill: none;
+  pointer-events: all;
+  } 
+
+ .focus circle {
+  fill: #123456;
+  stroke: #123456;
+  stroke-width: 1px;
+}
+  
+  .hover-line {
+  stroke: #123456;
+  stroke-width: 2px;
+  stroke-dasharray: 3,3;
+}
+
+</style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#Introduction">School Network </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#graph1">Graph 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#questions">Questions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#graph2">Graph 2</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!---- INTRO   ----------->
+<div class="w3-container" style="margin-top: 10px">
+<h5 style="text-align: left;display: inline-block;margin-left: 30px"><u>Name: Sanika Shah</u></h5>
+<h5 style="text-align: center;display: inline-block;margin-left: 320px"><u>Data Visualization</u></h5>
+<h5 style="text-align: right;display: inline-block;margin-left: 320px"><u>Date:3rd November</u></h5>
+</div>
+
+<!------ SVG---------->
+     <br><br>
+    
+<div class="w3-container" style="margin-top: 10px" >
+  <h4 style="margin-left: 230px">Contact of network in primary school</h4><br>
+  <div>
+    <object id="graph1" style="float:left" data="Graph1.svg" type="image/svg+xml"></object>
+  </div>
+  <div>
+    <img style= "float: left;margin-top: 100px" src="colorLegendGraph1.png" alt="Legend" >
+  </div>
+</div>
+
+<br><br>
+<!--  Questions from asg -->
+<div id="questions" style="margin-top: 100px;float:left;margin-left: 30px">
+<br>
+<p>
+  <a href="http://www.sociopatterns.org/datasets/primary-school-cumulative-networks/"> Link to dataset </a><br> 
+<label style="color:black">Introducion to Dataset: </label><br>
+  This dataset is part of a study of contact networks in a primary school, as reported in the paper <a href="http://www.sociopatterns.org/publications/high-resolution-measurements-of-face-to-face-contact-patterns-in-a-primary-school/">High-Resolution Measurements of Face-to-Face Contact Patterns in a Primary School.</a>
+  The dataset includes information about the contacts of students with each other as well with teachers. The students are grouped into classes. Each class is shown in different color.
+  The purpose of this kind of visualization is to report properties of the contact patterns between school children that are relevant for modeling the propagation of diseases and for evaluating control measures.<br><br>
+  
+  <label style="color:black">Layout:</label> &nbsp; &nbsp;&nbsp;Force Atlas<br>
+  <label style="color:black">Marks:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Circles<br> 
+  <label style="color:black">Channels:</label><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="color:black">Color: </label> Different colors represents different classes<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<label style="color:black">Size: </label> &nbsp;Size represents modularity. We can see that densely connected nodes are larger in size.  
+    <br><br>
+
+  <label style="color: black"> Observed structure:</label> Its observed that students have a strong bond with students of their class as compared to students of other classes.
+  </p>
+  <br>
+<h4>Questions:</h4>
+<p>
+<label style="color:black"> 1) Do you find communities (modularity) in the graph?</label><br>
+Yes, We can see there are 11 major communities in graph shown using different colors. These communities represent different classes eg: 1A,1B,2A,2B etc. These are shown in the table above.
+<br><br>
+<label style="color:black"> 2) What is the average degree centrality? What is the implication for the specific network you've chosen? </label><br>
+The average degree centrality is the average of number of links incident upon all nodes.
+The value is 49.992 for this dataset. For this network it gives the number of contacts that a student has with all other students. Since mostly the nodes are connected to their own class strongly, most of the degree contribution comes from their own class.
+
+<br><br>
+<label style="color: black"> 3) What is the average betweenness centrality? What is the implication for the specific network you've chosen?</label><br>
+Network Diameter gives us Betweenness Centrality which measures how often a node appears on the shortest paths between nodes in the network. By coloring the graph using betweenness centrality as node ranking we see that the inner nodes have larger values than the outer nodes which is intuitive since inner nodes would appear more often between shortest paths of different nodes.
+For this network it signifies which students interact more with other class students.
+
+<br><br>
+<label style="color: black"> 4)  What is the average Eigenvector centrality? What is the implication for the specific network you've chosen?</label><br>
+Eigen Vector centrality is a measure of node importance in a network based on a node's connections.
+A high eigenvector score means that a node is connected to many nodes who themselves have high scores. For this network we can see that the inner nodes have more eigenvector centrality value then the outer nodes.This can be seen in the graph below. It means the students that interact with their own class students as well as other class students have higher values of eigenvector centrality which means their measure of influence is higher.
+
+<br><br>
+</p>
+</div>
+
+
+<!-- Second svg -->
+
+  <br><br>
+    
+<div class="w3-container" style="margin-top: 10px" >
+
+  <div>
+    <object id="graph2" style="float:left;margin-left: -50px" data="Graph2.svg" type="image/svg+xml"></object>
+  </div>
+  <div>
+    <img style= "float: left;margin-top: 100px" src="colorLegendGraph2_1.png" alt="Legend" >
+    <img style= "float: left;margin-top: 100px" src="colorLegendGraph2_2.png" alt="Legend" >
+  </div>
+</div>
+
+
+<div class="w3-container" style="position: relative;float: left;clear:both;margin-left: 30px;margin-top: 60px">
+  <h4>Description</h4>
+  <p>
+  Eigen vector values range from 0.1 to 1. These values are represented using size. Greater the node size higher the value for that node. From the above legend we can see that node size of 30 corresponds to eigenvector centrality of 1 and node size of 15 corresponds to eigenvector centrality of 0.1.
+  Another channel is also used to represent this - color brightness. Brighter the green color higher the value and vice versa. The variance of color is shown in the legend above.  
+  </p>
+</div>
+
+</body>
+</html> 
